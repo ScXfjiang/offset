@@ -3,6 +3,18 @@ import random
 import numpy as np
 
 
+def get_dataset_type(type):
+    if type == "amazon_electronics":
+        Dataset = AmazonElectronics
+    elif type == "amazon_video_games":
+        Dataset = AmazonVideoGames
+    elif type == "amazon_grocery_and_gourmet_foods":
+        Dataset = AmazonGroceryAndGourmetFoods
+    else:
+        raise NotImplementedError
+    return Dataset
+
+
 class DatasetIf(object):
     def __init__(self, path, shuffle):
         super().__init__()
@@ -37,6 +49,6 @@ class AmazonVideoGames(Amazon):
         super().__init__(path, shuffle)
 
 
-class AmazonGourmetFoods(Amazon):
+class AmazonGroceryAndGourmetFoods(Amazon):
     def __init__(self, path, shuffle=False):
         super().__init__(path, shuffle)
