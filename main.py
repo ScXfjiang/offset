@@ -10,7 +10,6 @@ def main():
     parser.add_argument("--shuffle", default=True, type=bool)
     args = parser.parse_args()
 
-    print(args.train_set)
     DatasetT = get_dataset_type("amazon_grocery_and_gourmet_foods")
     train_set = DatasetT(args.train_set, shuffle=True)
     train_ratings = train_set.get_ratings()
