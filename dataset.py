@@ -1,5 +1,4 @@
 import json
-import random
 import numpy as np
 
 
@@ -16,7 +15,7 @@ def get_dataset_type(type):
 
 
 class DatasetIf(object):
-    def __init__(self, path, shuffle):
+    def __init__(self, path):
         super().__init__()
 
     def get_ratings(self):
@@ -24,15 +23,13 @@ class DatasetIf(object):
 
 
 class Amazon(DatasetIf):
-    def __init__(self, path, shuffle=False):
-        super().__init__(path, shuffle)
+    def __init__(self, path):
+        super().__init__(path)
         self.ratings = []
         with open(path, "rb") as f:
             for line in f:
                 js = json.loads(line)
                 self.ratings.append(float(js["overall"]))
-        if shuffle:
-            random.shuffle(self.ratings)
         self.ratings = np.array(self.ratings)
 
     def get_ratings(self):
@@ -40,15 +37,15 @@ class Amazon(DatasetIf):
 
 
 class AmazonElectronics(Amazon):
-    def __init__(self, path, shuffle=False):
-        super().__init__(path, shuffle)
+    def __init__(self, path):
+        super().__init__(path)
 
 
 class AmazonVideoGames(Amazon):
-    def __init__(self, path, shuffle=False):
-        super().__init__(path, shuffle)
+    def __init__(self, path):
+        super().__init__(path)
 
 
 class AmazonGroceryAndGourmetFoods(Amazon):
-    def __init__(self, path, shuffle=False):
-        super().__init__(path, shuffle)
+    def __init__(self, path):
+        super().__init__(path)
