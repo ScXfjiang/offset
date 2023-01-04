@@ -3,11 +3,9 @@ import numpy as np
 
 
 def get_dataset_type(type):
-    if type == "amazon_electronics":
-        Dataset = AmazonElectronics
-    elif type == "amazon_video_games":
-        Dataset = AmazonVideoGames
-    elif type == "amazon_grocery_and_gourmet_foods":
+    if type == "amazon_grocery_and_gourmet_foods":
+        Dataset = AmazonGroceryAndGourmetFoods
+    elif type == "amazon_apps_for_android":
         Dataset = AmazonGroceryAndGourmetFoods
     else:
         raise NotImplementedError
@@ -36,16 +34,11 @@ class Amazon(DatasetIf):
         return self.ratings
 
 
-class AmazonElectronics(Amazon):
-    def __init__(self, path):
-        super().__init__(path)
-
-
-class AmazonVideoGames(Amazon):
-    def __init__(self, path):
-        super().__init__(path)
-
-
 class AmazonGroceryAndGourmetFoods(Amazon):
+    def __init__(self, path):
+        super().__init__(path)
+
+
+class AmazonAppsForAndrois(Amazon):
     def __init__(self, path):
         super().__init__(path)

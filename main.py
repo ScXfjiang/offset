@@ -9,7 +9,7 @@ def main():
     parser.add_argument("--test_set", default="", type=str)
     args = parser.parse_args()
 
-    DatasetT = get_dataset_type("amazon_grocery_and_gourmet_foods")
+    DatasetT = get_dataset_type(args.dataset_type)
     train_set = DatasetT(args.train_set)
     train_ratings = train_set.get_ratings()
     avg_train_rating = train_ratings.mean()
