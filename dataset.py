@@ -6,7 +6,7 @@ def get_dataset_type(type):
     if type == "amazon_grocery_and_gourmet_foods":
         Dataset = AmazonGroceryAndGourmetFoods
     elif type == "amazon_apps_for_android":
-        Dataset = AmazonGroceryAndGourmetFoods
+        Dataset = AmazonAppsForAndrois
     else:
         raise NotImplementedError
     return Dataset
