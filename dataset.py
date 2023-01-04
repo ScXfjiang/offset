@@ -6,7 +6,7 @@ def get_dataset_type(type):
     if type == "amazon_grocery_and_gourmet_foods":
         Dataset = AmazonGroceryAndGourmetFoods
     elif type == "amazon_apps_for_android":
-        Dataset = AmazonAppsForAndrois
+        Dataset = AmazonAppsForAndroid
     else:
         raise NotImplementedError
     return Dataset
@@ -39,6 +39,6 @@ class AmazonGroceryAndGourmetFoods(Amazon):
         super().__init__(path)
 
 
-class AmazonAppsForAndrois(Amazon):
+class AmazonAppsForAndroid(Amazon):
     def __init__(self, path):
         super().__init__(path)
